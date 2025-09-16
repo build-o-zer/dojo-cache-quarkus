@@ -21,15 +21,11 @@ public class MainResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject callMe() {
+        
         StopWatch stopWatch = StopWatch.createStarted();
-        
-        // Method execution code here
         String result = businessService.performBusinessLogic();
-
         stopWatch.stop();
-        
-        System.out.println("Method execution time: " + stopWatch.getTime() + " ms");
-        
+  
         return Json.createObjectBuilder()
                 .add("businessResult", result)
                 .add("executionTimeMs", stopWatch.getTime())
