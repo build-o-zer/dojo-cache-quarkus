@@ -1,0 +1,5 @@
+### Test call-me endpoint
+# @name callMe
+GET http://localhost:8080/call-me
+Accept: application/json
+
