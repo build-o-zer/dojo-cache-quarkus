@@ -3,6 +3,7 @@ package org.buildozers;
 import java.util.Random;
 import java.util.UUID;
 
+import io.quarkus.cache.CacheResult;
 import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -11,7 +12,10 @@ public class BusinessService {
 
     private final Random random = new Random();
 
-    public String performBusinessLogic() {
+    // TODO : CODING DOJO tout seul, intecepteur CDI qui simule un long traitement à la de le coder dans la méthode 
+    // @SimulateLongProcessing(initialDelay = 2000, maxDelay = 5000)
+    @CacheResult(cacheName = "business-cache")
+    public String performBusinessLogic(String chaineA, String chaineB, int entierA, int entierB) {
 
         int sleepTime = getSleepTime();
         try {
@@ -26,7 +30,7 @@ public class BusinessService {
         }
         
         // Simulate some business logic processing
-        return "Business logic result from Quarkus Service " + UUID.randomUUID();
+        return String.format("Business logic result %s, %s, %d, %d (%s)", chaineA, chaineB, entierA, entierB, UUID.randomUUID());
     }
 
     private int getSleepTime() {

@@ -3,3 +3,32 @@
 GET http://localhost:8080/call-me
 Accept: application/json
 
+{
+    "chaineA": "Hello",
+    "chaineB": "World",
+    "entierA": 42,
+    "entierB": 7
+}
+
+GET http://localhost:8080/call-me
+Accept: application/json
+
+{
+    "chaineA": "Bruce",
+    "chaineB": "Wayne",
+    "entierA": 50,
+    "entierB": 8
+}
+
+GET http://localhost:8080/call-me
+Accept: application/json
+
+{
+    "chaineA": "Bruce",
+    "chaineB": "Kent",
+    "entierA": 60,
+    "entierB": 80
+}
+
+GET http://localhost:8080/cache-entries
+
